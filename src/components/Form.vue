@@ -64,7 +64,7 @@
                 ></v-checkbox>
               </v-row>
             </v-flex>
-            <input class="mb-2" color="primary" type="submit" value="Submit" />
+            <input class="mb-2" color="primary" type="submit" value="Submit" style="background-color:gray; width:70px; height:40px; background-radius:20px" />
             
           </v-form>
        
@@ -106,6 +106,7 @@ export default {
   }),
   methods: {
     checkForm: function(e) {
+      if(this.data) return
       axios.post("http://localhost:8081/post",this.data).then(response => {
         alert(response);
         this.data ="";
