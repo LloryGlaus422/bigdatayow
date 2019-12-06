@@ -5,6 +5,7 @@ import store from './store'
 import vuetify from './plugins/vuetify';
 import VueSimpleAlert from "vue-simple-alert";
 
+
 Vue.use(VueSimpleAlert);
 
 Vue.config.productionTip = false

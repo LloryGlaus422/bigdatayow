@@ -1,9 +1,11 @@
+
 <template>
-  <v-container>
+<div class = "background">
+  <v-container >
     <v-layout text-center wrap>
       <v-flex justify-center>
-        <v-card height="100%" width="70%" class="mx-auto">
-          <v-form color="accent" ref="form" @submit.prevent="send">
+        <v-card height="100%" width="70%"  style ="margin-top:5%" class="mx-auto">
+          <v-form  ref="form" @submit.prevent="send">
              <p v-if="errors.length" class="errors">
                <b>Please correct the following error(s):</b>
                 <ul v-for ="(error, i) in errors" :key="i">
@@ -76,6 +78,7 @@
       </v-flex>
     </v-layout>
   </v-container>
+</div>
 </template>
 
 <script>
@@ -220,6 +223,12 @@ ul {
   margin:30px;
   
 }
+.background{
+  height: 100vh;
+  text-align: center;
+  background-image: url("../assets/soc.jpg");
+background-size: cover;
+}
 
 .suggestions {
   text-align: left;
@@ -250,6 +259,4 @@ ul {
 .sg:hover {
   background:rgb(236, 233, 233);
 }
-
-
 </style>
