@@ -19,7 +19,7 @@
               </v-col>
               <div class="suggestions">
                   <p class="sg tsg">Choose suggested topic that is same to yours to make it to be prioritized</p>
-                  <p class="sg" v-for="(sug, i) in suggestions" :key="i" @click="topic = sug.subject">{{sug.subject}}</p>
+                  <p class="sg" v-for="(sug, i) in suggestions" :key="i" @click="topic = sug._id">{{sug._id}}</p>
               </div>
             </v-row>
             <h1>Insight on the Topic of Concern</h1>
