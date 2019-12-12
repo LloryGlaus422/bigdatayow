@@ -3,8 +3,8 @@
 <div class = "background">
   <v-container >
     <v-layout text-center wrap>
-      <v-flex justify-center>
-        <v-card height="100%" width="70%"  style ="margin-top:5%" class="mx-auto">
+      <!-- <v-flex justify-center> -->
+        <v-card outlined height="100%" width="70%"  style ="margin-top:5% ;margin-left:-50%" class="mx-auto meme">
           <v-form  ref="form" @submit.prevent="send">
              <p v-if="errors.length" class="errors">
                <b>Please correct the following error(s):</b>
@@ -19,8 +19,8 @@
               <v-col cols="12" sm="6" md="6">
                 <v-text-field v-model="topic" label="Topic" autocomplete="off" @keyup="getSuggestions" placeholder="Input Topic" outlined></v-text-field>
               </v-col>
-              <div class="suggestions">
-                  <p class="sg tsg">Choose suggested topic that is same to yours to make it to be prioritized</p>
+              <div style ="margin-right:5%; margin-top: -2%" class="suggestions">
+                  <p  class="sg tsg">Choose suggested topic related to yours.</p>
                   <p class="sg" v-for="(sug, i) in suggestions" :key="i" @click="topic = sug._id">{{sug._id}}</p>
               </div>
             </v-row>
@@ -70,12 +70,12 @@
             <div class="imh">
             <img :src="url" v-if="url" class="image">
             </div>
-            <input class="mb-2 btnsb" color="primary" type="submit" value="Submit" style="background-color:gray; width:70px; height:40px; background-radius:20px" />
+            <input class="mb-2 btnsb" color="primary" type="submit" value="Submit" style="background-color:#1a75ff;color:white; width:100px; height:40px; border-radius:20px" />
             
           </v-form>
        
         </v-card>
-      </v-flex>
+      <!-- </v-flex> -->
     </v-layout>
   </v-container>
 </div>
@@ -194,6 +194,8 @@ export default {
   margin-right: 10%;
 }
 
+
+
 .errors {
   color: red;
 }
@@ -226,8 +228,9 @@ ul {
 .background{
   height: 100vh;
   text-align: center;
-  background-image: url("../assets/soc.jpg");
-background-size: cover;
+  background-image: url("../assets/comr.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .suggestions {
@@ -235,25 +238,25 @@ background-size: cover;
   position: fixed;
   background:white;
   /* padding: 10px; */
-  border: 1px solid lightgrey;
+  border: 3px solid lightsteelblue;
   border-radius: 3px;
   right: 5px;
   top:100px;
   z-index: 1;
   height: 604px;
   overflow: auto;
-  width:210px;
+  width:250px;
 }
 
 .sg {
   padding: 5px 10px;
-  font-size: 15px;
+  font-size: 18px;
   margin:0 !important ;
   border-bottom: 1px solid rgb(245, 241, 241);
 }
 .tsg {
-  background:lightgrey !important;
-  font-size: 13px;
+  background:cyan !important;
+  font-size: 18px;
 
 }
 .sg:hover {
