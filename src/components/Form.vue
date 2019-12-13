@@ -1,32 +1,37 @@
 <template>
 <div class = "background">
+  <div class="home"></div>
 <center>
-  <v-container id = "forms">
+  <!-- <v-container id = "forms"> -->
+    <v-row>
+      <v-col>
+    <div class="cont">
       <div id = "topics">
     <v-text-field id="table" v-model="searched" label="Search your topic" autocomplete="off" @keyup="searchTopic(searched)" placeholder="Input Topic" outlined>
         <button small>Search</button>
       </v-text-field> 
      <table id = "table">
     
-       <tr v-for="(topic, index) in topics" :key="index">
+       <tr class="messs" v-for="(topic, index) in topics" :key="index">
          <td>
-  <h5>{{topic.subject }}</h5>
+      <h5>{{topic.subject }}</h5>
          </td>
          <td style="padding : 10px">
       <div style="font-size: 12px">
 
-      <span v-show="topic.isDeleted" >-Deleted </span>
-      <span v-show="topic.isResolved">-Resolved </span>
-      <span v-show="topic.isViewed && !topic.isResolved && !topic.isDeleted" >-viewed </span>
-      <span v-show="topic.inProgress">-working on it </span>
-      <span v-show="!topic.isViewed">-Unread </span>
-</div>
+      <span v-show="topic.isDeleted" style="color : red">Deleted </span>
+      <span v-show="topic.isResolved" style="color : green">Resolved </span>
+      <span v-show="topic.isViewed && !topic.isResolved && !topic.isDeleted" style="color : orange">viewed </span>
+      <span v-show="topic.inProgress" style="color : dodgerblue">working on it </span>
+      <span v-show="!topic.isViewed" style="color : brown">Unread </span>
+    </div>
          </td>
        </tr>
      </table>
   </div>
-    <v-layout text-center wrap>
-      <v-flex justify-center>
+    </div></v-col>
+    <!-- <v-layout text-center wrap> -->
+          <v-col class="cneter">
         <v-card  width="90%"  height= "100%" style ="margin-top:0%;" class="mx-auto">
           <v-form  ref="form" @submit.prevent="send">
              <p v-if="errors.length" class="errors">
@@ -117,13 +122,18 @@
           </v-form>
        
         </v-card>
-      </v-flex>
-    </v-layout>
-    <div class="suggestions">
+          </v-col>
+          <v-col>
+            <div class="suggestions">
                   <p class="sg tsg">Choose suggested topic that is same to yours to make it to be prioritized</p>
                   <p class="sg" v-for="(sug, i) in suggestions" :key="i" @click="topic = sug._id">{{sug._id}}</p>
               </div>
-  </v-container>
+          </v-col>
+        </v-row>
+    <!-- </v-layout> -->
+    
+  <!-- </v-container> -->
+    <!-- </div> -->
 </center>
 </div>
 </template>
@@ -322,17 +332,14 @@ background-size: cover;
 
 .suggestions {
   text-align: left;
-  position: fixed;
+  /* position: fixed; */
   background:white;
   /* padding: 10px; */
   border: 1px solid lightgrey;
   border-radius: 3px;
-  right: 5px;
-  top:36px;
-  z-index: 1;
   height: 604px;
   overflow: auto;
-  width:210px;
+  width:300px;
   float: left;
   margin-right: 10%
 }
@@ -353,7 +360,7 @@ background-size: cover;
 }
 #topics{
   float: left;
-  margin-right: 10%;
+  margin-right: 3%;
   text-align: center;
 }
 #forms{
@@ -372,4 +379,27 @@ background-size: cover;
 #table :hover{
   background:rgb(236, 233, 233);
 }
+.messs {
+  border-bottom: 1px solid grey !important;
+}
+
+#table tr {
+  border:1px solid grey;
+}
+.cnter {
+  margin:0;
+}
+.home {
+    color:#043a77;
+    background-image: linear-gradient(to right, #0069fc, #0ec9eb);
+    border-bottom: 1px solid #aec7e9;
+    height: 5px;
+}
+
+.cont {
+  display: inline-block;
+  margin-top: 50px;
+  margin-right: 0;
+}
+
 </style>
